@@ -6,7 +6,7 @@ import time
 import sys
 import logging as lg
 #import telegram as Tg
-from sql import SqlGetter
+import sql_getter as SqlGetter
 from telegram.ext import Updater, CommandHandler
 from constants import BOT_API_TOKEN
 
@@ -39,11 +39,6 @@ def globalday(bot, update):
 
 
 updater = Updater(BOT_API_TOKEN)
-# mybot = Tg.Bot(BOT_API_TOKEN)
-#add_commands(updater, 'teamday', 'teamday')
-#add_commands(updater, 'teammonth', 'teammonth')
-#add_commands(updater, 'globalmonth', 'globalmonth')
-#add_commands(updater, 'globalday', 'globalday')
 
 updater.dispatcher.add_handler(CommandHandler('teamday', teamday))
 updater.dispatcher.add_handler(CommandHandler('teammonth', teammonth))
