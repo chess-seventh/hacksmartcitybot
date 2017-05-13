@@ -1,0 +1,1 @@
+from activity_history, nfc_card, activity where nfc_card_nfc_id=nfc_id and activity.activity_id=nfc_card.activity_activity_id and nfc_card.Group_group_id = 1 and timestamp BETWEEN '2017-05-13 00:00:00' and '2017-05-13 23:59:59';
