@@ -20,22 +20,32 @@ def reboot_bot(update):
 def teamday(bot, update):
     """ Team score of a team for the given day """
     update.message.reply_text('hello show data of teamday here')
-    SqlGetter.q_team_day()
+    b = SqlGetter.q_team_day()
+    for i in b:
+        update.message.reply_text(i)
 
 def teammonth(bot, update):
     """ Team score of a team for the current month """
     update.message.reply_text('hello show data of teammonth here')
-    SqlGetter.q_team_month()
+    b = SqlGetter.q_team_month()
+    for i in b:
+        update.message.reply_text(i)
 
 def globalmonth(bot, update):
     """ Overall scores for the current month """
     update.message.reply_text('hello show data of global month  here')
-    SqlGetter.q_global_month()
+    b = SqlGetter.q_global_month()
+    for i in b:
+        update.message.reply_text(i)
+
 
 def globalday(bot, update):
     """ Overall scores for the current day """
     update.message.reply_text('hello show data of global day  here')
-    SqlGetter.q_global_day()
+    b = SqlGetter.q_global_day()
+    for i in b:
+        update.message.reply_text(i)
+
 
 
 updater = Updater(BOT_API_TOKEN)
