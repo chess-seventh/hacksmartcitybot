@@ -6,6 +6,7 @@ import time
 import sys
 import logging as lg
 #import telegram as Tg
+from sql import SqlGetter
 from telegram.ext import Updater, CommandHandler
 from constants import BOT_API_TOKEN
 
@@ -19,18 +20,22 @@ def reboot_bot(update):
 def teamday(bot, update):
     """ Team score of a team for the given day """
     update.message.reply_text('hello show data of teamday here')
+    SqlGetter.q_team_day()
 
 def teammonth(bot, update):
     """ Team score of a team for the current month """
     update.message.reply_text('hello show data of teammonth here')
+    SqlGetter.q_team_month()
 
 def globalmonth(bot, update):
     """ Overall scores for the current month """
     update.message.reply_text('hello show data of global month  here')
+    SqlGetter.q_global_month()
 
 def globalday(bot, update):
     """ Overall scores for the current day """
     update.message.reply_text('hello show data of global day  here')
+    SqlGetter.q_global_day()
 
 
 updater = Updater(BOT_API_TOKEN)
