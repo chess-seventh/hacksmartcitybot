@@ -1,21 +1,48 @@
 """
 Smart City Hackathon
 """
+import os
+import time
+import sys
+import logging as lg
 import telegram as Tg
-import logging
-from telegram.ext import Updater
-from constants import BOT_TOKEN
+from telegram.ext import Updater, CommandHandler
 from constants import BOT_API_TOKEN
 
+def reboot_bot(update):
+    """ Reboot the bot """
+    #bot.send_message(update.message.chat_id, "Bot is restarting... Hold on !")
+    update.message.reply_text("Bot is restarting... Hold tight !")
+    time.sleep(0.5)
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
-class BotBuilder(object):
-    """docstring for BotBuilder"""
-    def __init__(self):
-        self.updater = Updater(BOT_TOKEN)
-        self.bot = Tg.Bot(BOT_API_TOKEN)
+def add_commands(my_updater, name, func):
+    """ Add commands the bot """
+    my_updater.dispatcher.add_handler(CommandHandler(name, func))
+
+def start_bot(myupdater):
+    """ Start the bot """
+    #bot.send_message(chat_id=update.message.chat_id, text="Your Hackathon bot, talk!")
+    myupdater.start_webhook('', 80, 'urlpath')
+    myupdater.start_polling()
+
+def teamday(bot, update):
+    """ Team score of a team for the given day """
+    print("hello")
+
+def teammonth(bot, update):
+    """ Team score of a team for the current month """
+    print("hello")
+
+def globalmonth(bot, update):
+    """ Overall scores for the current month """
+    print("hello")
+
+def globalday(bot, update):
+    """ Overall scores for the current day """
+    print("hello")
 
 
-
-
-
-logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s ', level = logging.INFO)
+updater = Updater(BOT_API_TOKEN)
+mybot = Tg.Bot(BOT_API_TOKEN)
+lg.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=lg.INFO)
