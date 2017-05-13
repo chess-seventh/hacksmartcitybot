@@ -21,7 +21,6 @@ class SqlGetter(object):
         self.cur = self.db.cursor()
 
 
-
     def q_team_day(self):
         """ SQL Function to Query the team day"""
         self.cur.execute("SELECT * FROM group")
@@ -29,9 +28,32 @@ class SqlGetter(object):
         # print all the first cell of all the rows
         for row in self.cur.fetchall():
             print(row)
+        self.co_close()
 
 
+    def q_team_month(self):
+        """ SQL Function to Query the team month"""
+        self.cur.execute("SELECT * FROM group")
+        for row in self.cur.fetchall():
+            print(row)
+        self.co_close()
 
-    def get_close(self):
+
+    def q_global_day(self):
+        """ asd """
+        self.cur.execute("SELECT * formoas.dasd")
+        for row in self.cur.fetchall():
+            print(row)
+        self.co_close()
+
+    def q_global_month(self):
+        """ asd """
+        self.cur.execute("SLEC")
+        for row in self.cur.fetchall():
+            print(row)
+        self.co_close()
+
+
+    def co_close(self):
         """docstring for SqlGetter"""
         self.db.close()
