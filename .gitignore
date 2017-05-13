@@ -1,0 +1,3 @@
+constants.py
+*.swp
+__pycache__/
