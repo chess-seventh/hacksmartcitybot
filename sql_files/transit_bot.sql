@@ -18,9 +18,9 @@ CREATE SCHEMA IF NOT EXISTS `smhackbot` DEFAULT CHARACTER SET utf8 ;
 USE `smhackbot` ;
 
 -- -----------------------------------------------------
--- Table `smhackbot`.`Group`
+-- Table `smhackbot`.`groups`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `smhackbot`.`Group` (
+CREATE TABLE IF NOT EXISTS `smhackbot`.`groups` (
   `group_id` INT NOT NULL,
   PRIMARY KEY (`group_id`),
   UNIQUE INDEX `group_id_UNIQUE` (`group_id` ASC))
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `smhackbot`.`nfc_card` (
   INDEX `fk_nfc_card_Group_idx` (`Group_group_id` ASC),
   CONSTRAINT `fk_nfc_card_Group`
     FOREIGN KEY (`Group_group_id`)
-    REFERENCES `smhackbot`.`Group` (`group_id`)
+    REFERENCES `smhackbot`.`groups` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
