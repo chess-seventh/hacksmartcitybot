@@ -10,6 +10,7 @@ Each organisation or company that wants to participate installs three NFC tags o
 - Car
 - TPG
 - Bike
+- Walking
 
 Every day, when you get to work, use your NFC-enabled phone to scan the tag corresponding to the means of transport you used.
 Your scores anonymously get added to the tally of your company.
